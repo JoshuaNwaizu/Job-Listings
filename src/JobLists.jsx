@@ -3,14 +3,14 @@ import data from "/public/data.json";
 import { BsDot } from "react-icons/bs";
 
 const JobLists = () => {
+  function handleClick(item) {
+    console.log(`Clicked ${item}`);
+  }
   return (
     <div className="my-6">
       <div className="flex flex-col gap-12 ">
         {data.map((items) => (
-          <div
-            key={items.id}
-            className="bg-stone-50 px-5 rounded-md shadow-2xl"
-          >
+          <div key={items.id} className="bg-stone-50 px-5 rounded-md shadow-2xl">
             <img
               src={items.logo}
               alt={items.company}
@@ -22,16 +22,18 @@ const JobLists = () => {
                 <div className="flex flex-row gap-3">
                   <p
                     className={
-                      items.new &&
-                      "bg-gray-500 text-stone-100 font-bold px-2 pt-1 rounded-full uppercase text-md"
+                      items.new
+                        ? "bg-gray-500 text-stone-100 font-bold px-2 pt-1 rounded-full uppercase text-md"
+                        : undefined
                     }
                   >
                     {items.new ? "New!" : ""}
                   </p>
                   <p
                     className={
-                      items.featured &&
-                      "bg-gray-700 px-2 pt-1 text-stone-100 font-bold rounded-full uppercase text-md"
+                      items.featured
+                        ? "bg-gray-700 px-2 pt-1 text-stone-100 font-bold rounded-full uppercase text-md"
+                        : undefined
                     }
                   >
                     {items.featured ? "Featured" : ""}
@@ -51,17 +53,35 @@ const JobLists = () => {
                 </div>
                 <hr className="bg-gray-600" />
                 <div className="mt-6 flex flex-row gap-4 flex-wrap text-gray-400 font-bold mb-6">
-                  <p className="bg-gray-200 py-2 px-2 rounded-md">
+                  <p
+                    className="bg-gray-200 py-2 px-2 rounded-md"
+                    onClick={() => handleClick(items.role)}
+                  >
                     {items.role}
                   </p>
-                  <p className="bg-gray-200 py-2 px-2 rounded-md">
+                  <p
+                    className="bg-gray-200 py-2 px-2 rounded-md"
+                    onClick={() => handleClick(items.level)}
+                  >
                     {items.level}
                   </p>
                   {items.languages.map((item) => (
-                    <p className="bg-gray-200 py-2 px-2 rounded-md">{item}</p>
+                    <p
+                      className="bg-gray-200 py-2 px-2 rounded-md"
+                      key={item}
+                      onClick={() => handleClick(item)}
+                    >
+                      {item}
+                    </p>
                   ))}
                   {items.tools.map((item) => (
-                    <p className="bg-gray-200 py-2 px-2 rounded-md">{item}</p>
+                    <p
+                      className="bg-gray-200 py-2 px-2 rounded-md"
+                      key={item}
+                      onClick={() => handleClick(item)}
+                    >
+                      {item}
+                    </p>
                   ))}
                 </div>
               </div>
