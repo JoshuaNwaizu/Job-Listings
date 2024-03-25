@@ -1,11 +1,10 @@
 import React from "react";
-import data from "/public/data.json";
 import { BsDot } from "react-icons/bs";
 
-const JobLists = () => {
-  function handleClick(item) {
-    console.log(`Clicked ${item}`);
-  }
+const JobLists = ({ data, onHandleClick }) => {
+  // function handleClick(item) {
+  //   console.log(`Clicked ${item}`);
+  // }
   return (
     <div className="my-6">
       <div className="flex flex-col gap-12 ">
@@ -55,13 +54,13 @@ const JobLists = () => {
                 <div className="mt-6 flex flex-row gap-4 flex-wrap text-gray-400 font-bold mb-6">
                   <p
                     className="bg-gray-200 py-2 px-2 rounded-md"
-                    onClick={() => handleClick(items.role)}
+                    onClick={() => onHandleClick(items.role)}
                   >
                     {items.role}
                   </p>
                   <p
                     className="bg-gray-200 py-2 px-2 rounded-md"
-                    onClick={() => handleClick(items.level)}
+                    onClick={() => onHandleClick(items.level)}
                   >
                     {items.level}
                   </p>
@@ -69,7 +68,7 @@ const JobLists = () => {
                     <p
                       className="bg-gray-200 py-2 px-2 rounded-md"
                       key={item}
-                      onClick={() => handleClick(item)}
+                      onClick={() => onHandleClick(item)}
                     >
                       {item}
                     </p>
@@ -78,7 +77,7 @@ const JobLists = () => {
                     <p
                       className="bg-gray-200 py-2 px-2 rounded-md"
                       key={item}
-                      onClick={() => handleClick(item)}
+                      onClick={() => onHandleClick(item)}
                     >
                       {item}
                     </p>
