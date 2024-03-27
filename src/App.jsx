@@ -2,28 +2,45 @@ import { useState } from "react";
 import SelectNav from "./SelectNav";
 import JobLists from "./JobLists";
 import data from "/public/data.json";
+//import imageLogo from "/public/images/bg-header-mobile.svg";
 
 const getData = data;
-const id = Math.floor(Math.random() * 100) + 1;
 function App() {
-  const [inputData, setInputData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
-  const handleClick = (item) => {
-    if (!inputData.includes(item)) {
-      setInputData((newInputs) => [...newInputs, item]);
+  const handleFilterClick = (data) => {
+    if (!filteredData.includes(data)) {
+      setFilteredData([...filteredData, data]);
     }
-    console.log(item);
   };
 
   const handleDeleteItem = (id) => {
-    setInputData((newInputs) => newInputs.filter((item) => item.id !== id));
+    const newData = filteredData.filter((items) => items !== id);
+    setFilteredData(newData);
     console.log(id);
   };
+
+  const handleDeleteAll = () => {
+    setFilteredData([]);
+  };
   return (
-    <div className="mx-6">
-      <SelectNav inputData={inputData} onDelete={handleDeleteItem} />
-      <JobLists data={getData} onHandleClick={handleClick} />
-    </div>
+    <>
+      <div className="mx-6 min-[1440px]:w-auto">
+        <SelectNav
+          filteredData={filteredData}
+          onDelete={handleDeleteItem}
+          onDeleteAll={handleDeleteAll}
+        />
+
+        {/* got filtered items form state and 
+      passsed it into job list component as a prop  */}
+        <JobLists
+          filtered={filteredData}
+          data={getData}
+          onFilter={handleFilterClick}
+        />
+      </div>
+    </>
   );
 }
 

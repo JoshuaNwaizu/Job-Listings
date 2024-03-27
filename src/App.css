@@ -1,7 +1,31 @@
-#nav {
+#nav-mobile {
   background: #618d8d;
   width: 100%;
 }
-#nav img {
+#nav-mobile img {
   width: 100%;
+}
+#nav-desktop img {
+  width: 100%;
+}
+#nav-desktop {
+  background: #618d8d;
+  width: 100%;
+}
+
+@media screen and (max-width: 1023px) {
+  #nav-mobile img {
+    height: 13rem;
+  }
+  #nav-desktop img {
+    display: none;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #nav-mobile img {
+    display: none;
+  }
+  #nav-desktop img {
+    display: block;
+  }
 }

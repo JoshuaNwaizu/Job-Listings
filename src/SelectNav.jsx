@@ -3,46 +3,35 @@ import { IoClose } from "react-icons/io5";
 
 const id = Math.floor(Math.random() * 100) + 1;
 
-const SelectNav = ({ inputData, onDelete }) => {
+const SelectNav = ({ filteredData, onDelete, onDeleteAll }) => {
   return (
     <>
-      <div className="flex items-center justify-center bg-stone-50 shadow-2xl py-6 -translate-y-11 rounded-xl">
-        <div className="flex items-center flex-wrap gap-4 mx-5">
-          {/* <div className="flex flex-row gap-1 bg-stone-200 text-gray-500 font-bold rounded-md">
-            <p className="p-2">Frontend </p>
-            <span className="bg-gray-500 p-1 text-slate-100 flex items-center px-2 rounded-e-md text-2xl font-bold">
-              <IoClose />
-            </span>
-          </div>
-          <div className="flex flex-row gap-1 bg-stone-200 text-gray-500 font-bold">
-            <p className="p-2"> CSS </p>
-            <span className="bg-gray-500 p-1 text-slate-100 flex items-center px-2 text-2xl font-bold rounded-e-md">
-              <IoClose />
-            </span>
-          </div>
-          <div className="flex flex-row gap-1 bg-stone-200 text-gray-500 font-bold">
-            <p className="p-2">JavaScript </p>
-            <span className="bg-gray-500 py-1 text-slate-100 flex items-center px-2 text-2xl font-bold rounded-e-md">
-              <IoClose />
-            </span>
-          </div> */}
-          {inputData.map((item) => (
-            <div
-              className="flex flex-row gap-1 bg-stone-200 text-gray-500 font-bold"
-              key={item}
-            >
-              <p className="p-2">{item}</p>
-              <span
-                className="bg-gray-500 py-1 text-slate-100 flex items-center px-2 text-2xl font-bold rounded-e-md"
-                onClick={() => onDelete(item.id)}
+      {filteredData.length > 0 && (
+        <div className="flex items-center justify-center bg-stone-50 shadow-2xl py-6 -translate-y-11 rounded-xl -mb-10 min-[1280px]:mx-[8rem]">
+          <div className="flex items-center flex-wrap gap-4 mx-5 ">
+            {filteredData.map((item, index) => (
+              <div
+                className="flex flex-row gap-1 bg-stone-200 rounded-md text-gray-500 font-bold max-[320px]:font-semibold"
+                key={index}
               >
-                <IoClose />
-              </span>
-            </div>
-          ))}
+                <p className="p-2 max-[320px]:p-1">{item}</p>
+                <span
+                  className="bg-gray-500 hover:bg-gray-700 transition-all py-1 text-slate-100 flex items-center px-2 text-2xl font-bold rounded-e-md max-[320px]:text-[1rem]"
+                  onClick={() => onDelete(item)}
+                >
+                  <IoClose />
+                </span>
+              </div>
+            ))}
+          </div>
+          <button
+            className="font-bold mr-4 text-gray-500 hover:text-gray-700 transition-all"
+            onClick={onDeleteAll}
+          >
+            Clear
+          </button>
         </div>
-        <button className="font-bold mr-4 text-gray-500">Clear</button>
-      </div>
+      )}
     </>
   );
 };
