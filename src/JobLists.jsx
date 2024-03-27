@@ -31,7 +31,7 @@ const JobLists = ({ data, filtered, onFilter }) => {
   }, [filtered]);
 
   return (
-    <div className="my-7 mt-16 min-[1280px]:mx-[8rem]">
+    <div className="my-7 mt-6 min-[1280px]:mx-[8rem]">
       <div className="flex flex-col gap-12 ">
         <div></div>
         {modified.map((items) => (
