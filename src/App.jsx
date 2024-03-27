@@ -16,7 +16,6 @@ function App() {
   const handleDeleteItem = (id) => {
     const newData = filteredData.filter((items) => items !== id);
     setFilteredData(newData);
-    console.log(id);
   };
 
   const handleDeleteAll = () => {
@@ -31,8 +30,12 @@ function App() {
           onDeleteAll={handleDeleteAll}
         />
 
-        {/* got filtered items form state and 
-      passsed it into job list component as a prop  */}
+        {/* 
+        March 26 2024
+
+        Got filtered items form state and 
+      passsed it into job list component as a prop to be used in
+      filtering out the components... */}
         <JobLists
           filtered={filteredData}
           data={getData}

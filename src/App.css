@@ -1,15 +1,10 @@
-#nav-mobile {
-  background: #618d8d;
-  width: 100%;
-}
-#nav-mobile img {
-  width: 100%;
-}
-#nav-desktop img {
-  width: 100%;
-}
+#nav-mobile,
 #nav-desktop {
   background: #618d8d;
+  width: 100%;
+}
+#nav-mobile img,
+#nav-desktop img {
   width: 100%;
 }
 
