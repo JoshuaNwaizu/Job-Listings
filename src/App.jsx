@@ -2,7 +2,6 @@ import { useState } from "react";
 import SelectNav from "./SelectNav";
 import JobLists from "./JobLists";
 import data from "/public/data.json";
-//import imageLogo from "/public/images/bg-header-mobile.svg";
 
 const getData = data;
 function App() {

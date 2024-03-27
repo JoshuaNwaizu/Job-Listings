@@ -51,7 +51,7 @@ const JobLists = ({ data, filtered, onFilter }) => {
               />
             </div>
 
-            <div className="min-[884px]:flex min-[884px]:justify-between">
+            <div className="min-[883px]:flex min-[883px]:justify-between">
               <div className="flex flex-col gap-3">
                 <div className="flex flex-row gap-6 -mt-5 max-[320px]:gap-4">
                   <h2 className="font-bold text-gray-500">{items.company}</h2>
@@ -90,7 +90,7 @@ const JobLists = ({ data, filtered, onFilter }) => {
                 </div>
               </div>
               <div>
-                <hr className="bg-gray-600 mb-5 min-[884px]:hidden" />
+                <hr className="bg-gray-600 mb-5 min-[883px]:hidden" />
 
                 <div className="mt-6 flex flex-row gap-4 flex-wrap text-gray-400 font-bold mb-6 max-[1280px]:mt-0">
                   <p
