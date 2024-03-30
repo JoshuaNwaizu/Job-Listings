@@ -94,12 +94,14 @@ const JobLists = ({ data, filtered, onFilter }) => {
 
                 <div className="mt-6 flex flex-row gap-4 flex-wrap text-gray-400 font-bold mb-6 max-[1280px]:mt-0">
                   <p
+                    typeof="button"
                     className="bg-gray-200 py-2 px-2 rounded-md hover:bg-gray-500 hover:text-gray-200 transition-all"
                     onClick={() => onFilter(items.role)}
                   >
                     {items.role}
                   </p>
                   <p
+                    typeof="button"
                     className="bg-gray-200 py-2 px-2 rounded-md hover:bg-gray-500 hover:text-gray-200 transition-all"
                     onClick={() => onFilter(items.level)}
                   >
@@ -107,6 +109,7 @@ const JobLists = ({ data, filtered, onFilter }) => {
                   </p>
                   {items.languages.map((item) => (
                     <p
+                      typeof="button"
                       className="bg-gray-200 py-2 px-2 rounded-md hover:bg-gray-500 hover:text-gray-200 transition-all"
                       key={item}
                       onClick={() => onFilter(item)}
@@ -116,6 +119,7 @@ const JobLists = ({ data, filtered, onFilter }) => {
                   ))}
                   {items.tools.map((item) => (
                     <p
+                      typeof="button"
                       className="bg-gray-200 py-2 px-2 rounded-md hover:bg-gray-500 hover:text-gray-200 transition-all"
                       key={item}
                       onClick={() => onFilter(item)}
